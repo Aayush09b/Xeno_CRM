@@ -1,11 +1,12 @@
 🚀 Xeno CRM - Mini Customer Relationship Management Platform
 A full-stack CRM application built for the Xeno SDE Internship Assignment 2025. This platform enables customer data management, audience segmentation, campaign creation with AI-powered messaging, and delivery tracking.
 
-Frontend: https://xeno-crm-frontend.vercel.app
+Frontend:[ https://xeno-crm01.netlify.app
+](https://xeno-crm01.netlify.app/)
 
-Backend API: https://xeno-crm-backend.onrender.com
+Backend API: [https://xeno-crm-kfli.onrender.com](https://xeno-crm-kfli.onrender.com)
 
-API Docs:[ https://xeno-crm-backend.onrender.com/api/docs](https://xeno-crm-kfli.onrender.com/api-docs)
+API Docs:[ https://xeno-crm-kfli.onrender.com/api/docs](https://xeno-crm-kfli.onrender.com/api-docs)
 
 
 🏗️ Architecture Diagram
