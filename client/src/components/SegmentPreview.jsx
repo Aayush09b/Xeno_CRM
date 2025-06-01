@@ -146,7 +146,7 @@ const SegmentPreview = ({ segments: initialSegments }) => {
                     <TableCell>
                       {segment.rules.map((rule, i) => (
                         <Typography key={i} variant="body2" fontWeight="bold">
-                          {i !== 0 && <span style={{ marginRight: 4 }}>{rule.logic || 'AND'}</span>}
+                          {i !== 0 && <span style={{ marginRight: 4 }}>{segment.logic[i-1] || 'AND'}</span>}
                           {rule.field} {rule.operator} {String(rule.value)}
                         </Typography>
                       ))}

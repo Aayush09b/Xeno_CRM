@@ -12,6 +12,12 @@ const vendorRoutes = require('./routes/vendorRoutes');
 const deliveryRoutes =require('./routes/deliveryRoutes');
 const { initializePassport } = require('./config/passport');
 
+const swaggerSetup = require('./utils/swagger');
+
+// After all other middleware but before routes
+
+
+
 const app = express();
 
 // Middleware
@@ -22,6 +28,8 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 app.use(passport.initialize());
+
+
 
 // Initialize passport strategies
 initializePassport(passport);
@@ -44,6 +52,10 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: 'Something went wrong!' });
 });
+
+
+swaggerSetup(app);
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
