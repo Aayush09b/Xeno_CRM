@@ -67,8 +67,11 @@ bash
 git clone https://github.com/Aayush09b/Xeno_CRM.git
 cd Xeno_CRM
 2. Backend Setup
+   
 bash
+
 cd server
+
 npm install
 
 # Create .env file
@@ -76,13 +79,17 @@ cp .env.example .env
 Environment Variables (server/.env):
 
 text
+
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/xeno_crm
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-GEMINI_API_KEY=your_gemini_api_key
-JWT_SECRET=your_jwt_secret
-CLIENT_URL=http://localhost:3000
+MONGODB_URI=
+JWT_SECRET=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+CALLBACK_URL=http://localhost:5000/api/auth/google/callback
+FRONTEND_URL=http://localhost:5173
+BACKEND_URL=http://localhost:5000
+
+
 Start Backend Server:
 
 bash
@@ -98,30 +105,14 @@ cp .env.example .env
 Environment Variables (client/.env):
 
 text
-REACT_APP_API_URL=http://localhost:5000
-REACT_APP_GOOGLE_CLIENT_ID=your_google_client_id
+VITE_API_URL=http://localhost:5000/api
+VITE_GOOGLE_CLIENT_ID=
+VITE_GEMINI_API_KEY=
 Start Frontend:
 
 bash
 npm start
-# Client runs on http://localhost:3000
-4. Database Setup
-The application will automatically create required collections. For sample data, you can use the provided seed script:
-
-bash
-cd server
-npm run seed
-📡 API Endpoints
-Method	Endpoint	Description
-POST	/api/auth/google	Google OAuth authentication
-POST	/api/customers	Create customer record
-POST	/api/orders	Create order record
-POST	/api/audiences	Create audience segment
-GET	/api/audiences	List all segments
-POST	/api/campaigns	Create campaign
-GET	/api/campaigns	List campaigns with stats
-POST	/api/messages/generate	AI message generation
-Full API Documentation: /api/docs
+# Client runs on http://localhost:5173
 
 🤖 AI Integration Details
 Google Gemini API Implementation
