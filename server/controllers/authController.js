@@ -10,7 +10,10 @@ exports.googleAuthCallback = async (req, res) => {
     // 👈 Add this
     if (!req.user) return res.status(401).json({ message: 'No user authenticated' });
     const token = generateToken(req.user);
-    res.cookie('token', token, { httpOnly: true });
+    res.cookie('token', token, { httpOnly: true,
+  secure: true, // 👈 required for HTTPS
+  sameSite: 'None', // 👈 allows cross-origin cookies
+  maxAge: 7 * 24 * 60 * 60 * 1000 // optional: 1 week });
     res.redirect(process.env.FRONTEND_URL);
   } catch (err) {
     res.status(500).json({ message: 'Authentication failed1' });
@@ -28,7 +31,10 @@ exports.login = async (req, res) => {
     }
     
     const token = generateToken(user);
-    res.cookie('token', token, { httpOnly: true }).json({ user, token });
+    res.cookie('token', token, {httpOnly: true,
+  secure: true, // 👈 required for HTTPS
+  sameSite: 'None', // 👈 allows cross-origin cookies
+  maxAge: 7 * 24 * 60 * 60 * 1000 // optional: 1 week}).json({ user, token });
   } catch (err) {
     res.status(500).json({ message: 'Login failed' });
   }
@@ -48,7 +54,10 @@ exports.signup = async (req, res) => {
     await user.save();
     
     const token = generateToken(user);
-    res.cookie('token', token, { httpOnly: true }).status(201).json({ user, token });
+    res.cookie('token', token, { httpOnly: true,
+  secure: true, // 👈 required for HTTPS
+  sameSite: 'None', // 👈 allows cross-origin cookies
+  maxAge: 7 * 24 * 60 * 60 * 1000 // optional: 1 week }).status(201).json({ user, token });
   } catch (err) {
     res.status(500).json({ message: 'Signup failed' });
   }
