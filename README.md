@@ -5,7 +5,7 @@ Frontend: https://xeno-crm-frontend.vercel.app
 
 Backend API: https://xeno-crm-backend.onrender.com
 
-API Docs: https://xeno-crm-backend.onrender.com/api/docs
+API Docs:[ https://xeno-crm-backend.onrender.com/api/docs](https://xeno-crm-kfli.onrender.com/api-docs)
 
 
 🏗️ Architecture Diagram
